@@ -1,0 +1,247 @@
+import { extendTheme, defineStyleConfig } from '@chakra-ui/react';
+
+const Button = defineStyleConfig({
+  baseStyle: {
+    bg: 'gray.400',
+  },
+  variants: {
+    create: {
+      textColor: 'white',
+      bg: 'primary.600',
+      fontSize: '15px',
+      _hover: { bg: 'primary.700' },
+    },
+    default: {
+      bg: 'primary.400',
+      textColor: 'white',
+      fontSize: '15px',
+      _hover: { bg: 'primary.900', color: 'white' },
+    },
+    cancel: {
+      bg: 'red.500',
+      borderColor: 'red.300',
+      textColor: 'white',
+      _hover: { bg: 'red.700', color: 'white' },
+    },
+  },
+});
+
+const Text = defineStyleConfig({
+  variants: {
+    title: {
+      lineHeight: '1.4',
+      fontWeight: 'extrabold',
+      fontSize: '20px',
+    },
+    subtitle: {
+      lineHeight: '1.43',
+      fontWeight: 'regular',
+      fontSize: '14px',
+      subtile: 'gray.800',
+    },
+    normal: {
+      lineHeight: '1.5',
+      fontWeight: 'semibold',
+      fontSize: '15px',
+    },
+  },
+});
+
+const theme = extendTheme({
+  id: 'teal',
+  name: 'Teal Theme',
+  semanticTokens: {
+    colors: {
+      topBarBg: {
+        default: 'primary.900',
+        _dark: 'secondary.900',
+      },
+      sideBarBg: {
+        default: 'primary.700',
+        _dark: 'linear-gradient(0deg, rgba(37,115,131,1) 0%, #0B1C1D 100%)',
+      },
+      backgroundBg: {
+        default: 'secondary.100',
+        _dark: 'primary.900',
+      },
+      sideBarItem: {
+        default: 'primary.900',
+        _dark: 'secondary.700',
+      },
+      createButtonBg: {
+        default: 'primary.500',
+        _dark: 'secondary.600',
+      },
+      tabBg: {
+        default: 'secondary.50',
+        _dark: 'secondary.700',
+      },
+      cardBg: {
+        default: 'secondary.50',
+        _dark: 'secondary.600',
+      },
+      panelInputBg: { default: 'primary.800', _dark: 'secondary.800' },
+      borderColor: {
+        default: 'secondary.300',
+        _dark: 'primary.600',
+      },
+      textHover: {
+        default: 'secondary.200',
+        _dark: 'primary.800',
+      },
+      hoverBg: { default: 'secondary.50', _dark: 'secondary.700' },
+      notSelectedTextColor: {
+        default: 'secondary.700',
+        _dark: 'secondary.500',
+      },
+      wizzardBg: {
+        default: 'secondary.50',
+        _dark: 'secondary.700',
+      },
+    },
+  },
+  colors: {
+    black: '#160c1b',
+    text: {
+      default: 'white',
+    },
+    secondary: {
+      50: '#f6fafb',
+      100: '#eaf3f4',
+      200: '#daebec',
+      300: '#bbdadc',
+      400: '#7bb7bb',
+      500: '#388a90',
+      600: '#255c60',
+      700: '#183c3e',
+      800: '#0e2325',
+      900: '#0b1c1d',
+    },
+    cyan: {
+      50: '#f1fcfe',
+      100: '#c4f1fa',
+      200: '#a8eaf7',
+      300: '#87e2f4',
+      400: '#40c4de',
+      500: '#3ab4cc',
+      600: '#35a2b8',
+      700: '#2b8698',
+      800: '#246e7d',
+      900: '#1c5561',
+    },
+    blue: {
+      50: '#f0f7fe',
+      100: '#c7e1fa',
+      200: '#9ecaf6',
+      300: '#6fb0f2',
+      400: '#4397eb',
+      500: '#3a82ca',
+      600: '#306da9',
+      700: '#255381',
+      800: '#1e446a',
+      900: '#193756',
+    },
+    purple: {
+      50: '#f8f6fe',
+      100: '#e5d9fc',
+      200: '#d2bef9',
+      300: '#b595f5',
+      400: '#a177f3',
+      500: '#844fef',
+      600: '#6f3cd3',
+      700: '#5b32ad',
+      800: '#4b298e',
+      900: '#371e69',
+    },
+    pink: {
+      50: '#fef5fa',
+      100: '#fbd7e9',
+      200: '#f8b6d7',
+      300: '#f487bd',
+      400: '#f160a8',
+      500: '#d73d8a',
+      600: '#b83576',
+      700: '#962b61',
+      800: '#75214b',
+      900: '#561938',
+    },
+    red: {
+      50: '#fef5f5',
+      100: '#fbd8d8',
+      200: '#f8b4b4',
+      300: '#f48686',
+      400: '#f16868',
+      500: '#e34141',
+      600: '#c03737',
+      700: '#9b2c2c',
+      800: '#832626',
+      900: '#601b1b',
+    },
+    orange: {
+      50: '#fefaf5',
+      100: '#fcead9',
+      200: '#f8d2ad',
+      300: '#f2ae6b',
+      400: '#e09040',
+      500: '#c17c37',
+      600: '#a3692e',
+      700: '#825325',
+      800: '#66421d',
+      900: '#543618',
+    },
+    yellow: {
+      50: '#fffefb',
+      100: '#fdf9e7',
+      200: '#f8eeb7',
+      300: '#f3e07d',
+      400: '#e6cb42',
+      500: '#bea736',
+      600: '#98862b',
+      700: '#766822',
+      800: '#594e19',
+      900: '#494015',
+    },
+    green: {
+      50: '#f3fef8',
+      100: '#b8f9d9',
+      200: '#56f0a3',
+      300: '#3dd78a',
+      400: '#36bc79',
+      500: '#2ea268',
+      600: '#268656',
+      700: '#1e6843',
+      800: '#185537',
+      900: '#14462d',
+    },
+    teal: {
+      50: '#ebfdfd',
+      100: '#a3f7f7',
+      200: '#43eaea',
+      300: '#3cd1d1',
+      400: '#33b2b2',
+      500: '#2b9797',
+      600: '#237b7b',
+      700: '#1b5f5f',
+      800: '#175050',
+      900: '#134141',
+    },
+    primary: {
+      50: '#ebfafd',
+      100: '#aceaf7',
+      200: '#56d6f0',
+      300: '#3bb4cd',
+      400: '#34a1b7',
+      500: '#2c889b',
+      600: '#257383',
+      700: '#1e5c69',
+      800: '#194e59',
+      900: '#123840',
+    },
+  },
+  components: {
+    Button,
+    Text,
+  },
+});
+
+export default theme;
