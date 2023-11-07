@@ -119,6 +119,6 @@ export function getColumns() {
         accessor: 'objet',
       },
     ],
-    []
+    [navigate]
   );
 }

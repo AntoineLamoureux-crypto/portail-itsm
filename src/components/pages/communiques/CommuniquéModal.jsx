@@ -16,12 +16,10 @@ import {
 
 export default function CommuniquéModal({ item, isOpen, onClose }) {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="4xl">
+    <Modal isOpen={isOpen} onClose={onClose} size="4xl" color="darkTextColor">
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader p="0px">
-          <Text textColor="darkTextColor">{item.title}</Text>
-        </ModalHeader>
+        <ModalHeader p="0px">{item.title}</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <Stack
@@ -60,7 +58,7 @@ export default function CommuniquéModal({ item, isOpen, onClose }) {
                         lineHeight="1.33"
                         fontWeight="semibold"
                         fontSize="24px"
-                        color="gray.800"
+                        color="darkTextColor"
                       >
                         {item.titre}
                       </Text>

@@ -131,12 +131,12 @@ export default function Wizzard({
     <Modal
       closeOnOverlayClick={false}
       isOpen={isOpen}
+      isCentered={true}
       onClose={handleOnClose}
       size="5xl"
-      overflowY="clip"
     >
       <ModalOverlay />
-      <ModalContent maxH="4xl" bg="wizzardBg">
+      <ModalContent bg="wizzardBg">
         {showAnnulerConfirm ? (
           <AnnulerConfirm
             onClose={() => handleOnClose()}
@@ -164,13 +164,29 @@ export default function Wizzard({
               </Stack>
             </ModalHeader>
             <ModalCloseButton />
-            <ModalBody py="0px" px="0px" overflowY="auto">
+            <ModalBody py="0px" px="0px" overflowY="clip">
               <Stack display="flex" flexDir="row" h="100%" w="100%">
-                <Stack w="60%" p="4">
+                <Stack
+                  w="60%"
+                  p="4"
+                  overflowY="auto"
+                  css={{
+                    '&::-webkit-scrollbar': {
+                      width: '2px',
+                    },
+                    '&::-webkit-scrollbar-track': {
+                      width: '10px',
+                    },
+                    '&::-webkit-scrollbar-thumb': {
+                      background: 'gray',
+                      borderRadius: '5px',
+                    },
+                  }}
+                >
                   {renderCurrentStep()}
                 </Stack>
 
-                <Flex minH="fit-content" flex="1" w="40%">
+                <Flex w="40%" flex="1" h="500px">
                   <Resume
                     value={resumeContent}
                     stepNumber={stepNumber}

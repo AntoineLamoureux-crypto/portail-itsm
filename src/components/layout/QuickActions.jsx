@@ -4,7 +4,7 @@ import { Divider, Stack, Text } from '@chakra-ui/react';
 export default function QuickActions() {
   return (
     <Stack minW="200px" w="200px">
-      <Text fontWeight="bold" fontSize="x-large">
+      <Text fontWeight="bold" fontSize="lg">
         Liens rapides
       </Text>
       <Stack pt="2" gap="4">
@@ -12,7 +12,7 @@ export default function QuickActions() {
           textColor="#4387CD"
           cursor="pointer"
           direction="row"
-          fontSize="sm"
+          fontSize="xs"
           fontWeight="normal"
           _hover={{ textDecor: 'underline', color: '#276acc' }}
         >
@@ -23,7 +23,7 @@ export default function QuickActions() {
           textColor="#4387CD"
           cursor="pointer"
           direction="row"
-          fontSize="sm"
+          fontSize="xs"
           fontWeight="normal"
           _hover={{ textDecor: 'underline', color: '#276acc' }}
         >
@@ -34,7 +34,7 @@ export default function QuickActions() {
           textColor="#4387CD"
           cursor="pointer"
           direction="row"
-          fontSize="sm"
+          fontSize="xs"
           fontWeight="normal"
           _hover={{ textDecor: 'underline', color: '#276acc' }}
         >
@@ -45,7 +45,7 @@ export default function QuickActions() {
           textColor="#4387CD"
           cursor="pointer"
           direction="row"
-          fontSize="sm"
+          fontSize="xs"
           fontWeight="normal"
           _hover={{ textDecor: 'underline', color: '#276acc' }}
         >
@@ -57,7 +57,7 @@ export default function QuickActions() {
           textColor="#4387CD"
           cursor="pointer"
           direction="row"
-          fontSize="sm"
+          fontSize="xs"
           fontWeight="normal"
           _hover={{ textDecor: 'underline', color: '#276acc' }}
         >
@@ -68,7 +68,7 @@ export default function QuickActions() {
           textColor="#4387CD"
           cursor="pointer"
           direction="row"
-          fontSize="sm"
+          fontSize="xs"
           fontWeight="normal"
           _hover={{ textDecor: 'underline', color: '#276acc' }}
         >

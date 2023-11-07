@@ -20,7 +20,6 @@ import { IoMdNotificationsOff } from 'react-icons/io';
 import { MdDateRange, MdModeEdit } from 'react-icons/md';
 import TextField from '../../reusable/form/TextField';
 import MesAbsences from './mes-absences/MesAbsences';
-import Personalisation from './personalisation/Personalisation';
 
 export default function MonProfil() {
   return (
@@ -192,6 +191,7 @@ export default function MonProfil() {
                     h="fit-content"
                     borderColor="borderColor"
                     borderWidth="1px"
+                    w="300px"
                   >
                     <Text
                       fontWeight="semibold"

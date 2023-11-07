@@ -51,7 +51,11 @@ export default function Communiqués() {
           >
             <Stack p="22px" spacing="24px" w="100%">
               {comuniques.map((item, id) => (
-                <Communiqué item={item} key={id} />
+                <Communiqué
+                  item={item}
+                  key={id}
+                  isLast={comuniques.length - 1 === id}
+                />
               ))}
             </Stack>
           </Tab>

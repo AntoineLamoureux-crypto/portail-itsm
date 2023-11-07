@@ -73,7 +73,7 @@ export default function Communiqué({ item, isLast }) {
       </Stack>
       {!isLast && (
         <Stack px="30px" py="0px">
-          <Divider border="1px solid" borderColor="gray.300" />
+          <Divider border="1px solid" borderColor="borderColor" />
         </Stack>
       )}
     </Stack>

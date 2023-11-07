@@ -4,16 +4,27 @@ import {
   HStack,
   Text,
   Icon,
-  Image,
   Box,
   useColorMode,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverCloseButton,
+  PopoverHeader,
+  PopoverBody,
+  Divider,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router';
-import { FiBell, FiLogOut, FiMoon, FiSun, FiUser } from 'react-icons/fi';
+import {
+  FiBell,
+  FiFileText,
+  FiLogOut,
+  FiMoon,
+  FiSun,
+  FiUser,
+} from 'react-icons/fi';
 import { AiOutlineQuestion } from 'react-icons/ai';
-
-import logo_dark from '../../images/Custom_Logo_Octopus_Dark.png';
-import logo_light from '../../images/Custom_Logo_Octopus_Light.png';
+import { BiError } from 'react-icons/bi';
 
 export default function TopBar() {
   const navigate = useNavigate();
@@ -21,17 +32,11 @@ export default function TopBar() {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Stack p="4" bg="topBarBg">
+    <Stack p="4" bg="topBarBg" shadow="md">
       <HStack justify="space-between" alignItems="center">
-        {/*<Image
-          src={colorMode === 'light' ? logo_dark : logo_light}
-          h="60px"
-          w={colorMode === 'light' ? '200px' : '150px'}>*/}
-
         <Text fontSize="25px" fontWeight="bold">
-          LOGO
+          DAZZM
         </Text>
-
         <HStack h="60px">
           <Stack direction="row" gap="3">
             <Stack
@@ -46,20 +51,90 @@ export default function TopBar() {
             >
               <Icon as={AiOutlineQuestion} />
             </Stack>
+            <Popover w="450px" isLazy={true} trigger="hover">
+              <PopoverTrigger>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  borderColor="#354877"
+                  borderWidth="1px"
+                  borderRadius="full"
+                  p="2"
+                  cursor="pointer"
+                  _hover={{ textColor: 'white', bg: 'gray.800' }}
+                >
+                  <Icon as={FiBell} />
+                </Stack>
+              </PopoverTrigger>
+              <PopoverContent bg="tabBg">
+                <PopoverHeader>
+                  <Text fontSize="sm" fontWeight="semibold">
+                    Notifications
+                  </Text>
+                </PopoverHeader>
+                <PopoverBody p="0" borderRadius="default">
+                  <Stack gap="0">
+                    <Stack
+                      p="2"
+                      direction="row"
+                      cursor="pointer"
+                      _hover={{ bg: 'rgba(255, 255, 255, 0.1)' }}
+                    >
+                      <Icon
+                        as={FiFileText}
+                        fontSize="x-large"
+                        color="blue.500"
+                      />
+                      <Stack w="100%" mt="5px">
+                        <Stack gap="0">
+                          <Text fontSize="xs">Assignation de billet</Text>
 
-            <Stack
-              direction="row"
-              alignItems="center"
-              borderColor="#354877"
-              borderWidth="1px"
-              borderRadius="full"
-              p="2"
-              cursor="pointer"
-              _hover={{ textColor: 'white', bg: 'gray.800' }}
-            >
-              <Icon as={FiBell} />
-            </Stack>
+                          <Text
+                            lineHeight="1.5"
+                            fontWeight="semibold"
+                            fontSize="16px"
+                          >
+                            Le billet #343cd vous a ete assigne !
+                          </Text>
 
+                          <Text fontSize="xs">
+                            Pierre Lamoureux vous a assigner ce billet
+                          </Text>
+                        </Stack>
+                      </Stack>
+                    </Stack>
+                    <Divider />
+                    <Stack
+                      p="2"
+                      direction="row"
+                      cursor="pointer"
+                      _hover={{ bg: 'rgba(255, 255, 255, 0.1)' }}
+                    >
+                      <Icon
+                        as={BiError}
+                        fontSize="x-large"
+                        color="orange.400"
+                      />
+                      <Stack w="100%" mt="5px">
+                        <Stack gap="0">
+                          <Text fontSize="xs">Interuption de service</Text>
+
+                          <Text
+                            lineHeight="1.5"
+                            fontWeight="semibold"
+                            fontSize="16px"
+                          >
+                            Interuption de service au routeur #2281
+                          </Text>
+
+                          <Text fontSize="xs">Creer par Eric Lapointe</Text>
+                        </Stack>
+                      </Stack>
+                    </Stack>
+                  </Stack>
+                </PopoverBody>
+              </PopoverContent>
+            </Popover>
             <Box
               bg="#037F36"
               h="19px"

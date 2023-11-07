@@ -62,7 +62,6 @@ export default function BaseDeConnaissances() {
                 overflowY="auto"
                 w="100%"
                 h="100%"
-                py="7px"
                 css={{
                   '&::-webkit-scrollbar': {
                     width: '2px',

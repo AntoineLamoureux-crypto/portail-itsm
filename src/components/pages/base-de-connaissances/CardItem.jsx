@@ -17,15 +17,7 @@ export default function CardItem({ data }) {
         spacing="16px"
         alignSelf="stretch"
       >
-        <Stack
-          padding="10px"
-          borderRadius="32px"
-          spacing="10px"
-          background="gray.200"
-          color="black"
-        >
-          <Icon as={data.icon} />
-        </Stack>
+        <Icon as={data.icon} fontSize="x-large" color="darkTextColor" />
         <Text
           lineHeight="1.56"
           fontWeight="extrabold"

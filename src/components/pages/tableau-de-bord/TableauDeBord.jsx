@@ -63,6 +63,7 @@ export default function TableauDeBord() {
 
           <Tab
             title="Communiqués"
+            tabH="300px"
             topRightContent={
               <Icon
                 as={FiArrowRight}
