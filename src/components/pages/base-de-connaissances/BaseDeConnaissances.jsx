@@ -9,6 +9,7 @@ import {
   Button,
   Flex,
   Center,
+  Divider,
 } from '@chakra-ui/react';
 import { FiZap, FiSearch } from 'react-icons/fi';
 import { cards, rubriques, billets } from './data';
@@ -42,22 +43,25 @@ export default function BaseDeConnaissances() {
   return (
     <PageWrapper>
       <Tab title="Comment pouvons-nous vous aider?" tabH="100%">
-        <Stack p="15px" h="100%">
-          <InputGroup>
-            <InputLeftElement pointerEvents="none">
-              <Icon as={FiSearch} />
-            </InputLeftElement>
-            <Input
-              value={value}
-              onChange={handleTextChange}
-              type="tel"
-              placeholder="Effectuez une recherche sur n'importe quel sujet"
-            />
-          </InputGroup>
+        <Stack h="800px">
+          <Stack pt="15px" px="15px">
+            <InputGroup>
+              <InputLeftElement pointerEvents="none">
+                <Icon as={FiSearch} />
+              </InputLeftElement>
+              <Input
+                value={value}
+                onChange={handleTextChange}
+                type="tel"
+                placeholder="Effectuez une recherche sur n'importe quel sujet"
+              />
+            </InputGroup>
+          </Stack>
           {value.length < 2 ? (
             <Stack h="100%">
               <Flex
-                justifyContent="space-between"
+                px="15px"
+                pt="5px"
                 direction="column"
                 overflowY="auto"
                 w="100%"
@@ -78,36 +82,40 @@ export default function BaseDeConnaissances() {
                 <Flex
                   direction="row"
                   flexWrap="wrap"
-                  pb="15px"
                   gap="4"
                   w="100%"
                   h="350px"
+                  justifyContent="space-arround"
                 >
                   {cards.map((card, key) => (
                     <CardItem data={card} key={key} />
                   ))}
                 </Flex>
               </Flex>
-              <Stack
-                padding="24px"
-                direction="row"
-                align="center"
-                spacing="24px"
-                border="borderColor"
-                borderRadius="8"
-                borderWidth="1px"
-              >
-                <Stack direction="row" flex="1">
-                  <Center>
-                    <Icon as={FiZap} mr="2" color="yellow.500" fontSize="2xl" />
+              <Stack maxH="100px">
+                <Divider />
+                <Stack padding="5" direction="row" align="center">
+                  <Stack direction="row" flex="1">
+                    <Center>
+                      <Icon
+                        as={FiZap}
+                        mr="2"
+                        color="yellow.500"
+                        fontSize="2xl"
+                      />
 
-                    <Text lineHeight="1.5" fontWeight="regular" fontSize="16px">
-                      Vous rencontrez une interruption ou un ralentissement de
-                      service?
-                    </Text>
-                  </Center>
+                      <Text
+                        lineHeight="1.5"
+                        fontWeight="regular"
+                        fontSize="16px"
+                      >
+                        Vous rencontrez une interruption ou un ralentissement de
+                        service?
+                      </Text>
+                    </Center>
+                  </Stack>
+                  <Button variant="cyan">Consulter l’état des services</Button>
                 </Stack>
-                <Button variant="cyan">Consulter l’état des services</Button>
               </Stack>
             </Stack>
           ) : (

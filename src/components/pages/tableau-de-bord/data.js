@@ -1,6 +1,7 @@
 import React from 'react';
 import { Center, Badge } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import { FiAlertCircle, FiAlertTriangle, FiClock } from 'react-icons/fi';
 
 export const data = [
   {
@@ -44,6 +45,36 @@ export const data = [
     etat: 'En cours',
     description: 'Déménagement d’équipement',
     couleurEtat: 'blue.500',
+  },
+];
+
+export const etatsDesServices = [
+  {
+    title: 'Interruption de service',
+    date: 'Jeudi 22 juillet, 09:00 AM',
+    service: '[Nom du service]',
+    icon: { data: FiAlertTriangle, color: 'red.500' },
+  },
+  {
+    title: 'Interruption de service',
+    date: 'Jeudi 22 juillet, 09:00 AM',
+    service: '[Nom du service]',
+    icon: { data: FiAlertCircle, color: 'orange.500' },
+  },
+];
+
+export const avisDeMaintenance = [
+  {
+    title: 'Mise a jour du système',
+    date: 'Jeudi 22 juillet, 09:00 AM',
+    service: '[Nom du service]',
+    icon: { data: FiClock, color: 'blue.500' },
+  },
+  {
+    title: 'Mise a jour du système',
+    date: 'Jeudi 22 juillet, 09:00 AM',
+    service: '[Nom du service]',
+    icon: { data: FiClock, color: 'blue.500' },
   },
 ];
 

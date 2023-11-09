@@ -29,7 +29,6 @@ export const CustomTextActions = () => {
     <Stack
       direction="row"
       size="sm"
-      p="1"
       cursor="pointer"
       w="fit-content"
       borderRadius="sm"

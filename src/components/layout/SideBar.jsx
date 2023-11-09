@@ -22,7 +22,7 @@ export default function SideBar() {
   }
 
   return (
-    <Flex flexDir="column" minW="200px" w="200px" gap="8">
+    <Flex flexDir="column" minW="200px" w="200px" gap="16">
       <Stack gap="2">
         {sideBarActions.map((action, id) => {
           return (
@@ -62,19 +62,17 @@ function SideBarAction({ action, onClick }) {
   return (
     <Stack
       direction="row"
-      gap="3"
       alignItems="center"
       borderColor="darkBorderColor"
       borderWidth="1px"
       borderRadius="lg"
-      p="3"
       h="60px"
+      p="3"
       cursor="pointer"
       _hover={{ textColor: 'white', bg: 'gray.800' }}
       onClick={onClick}
-      fontSize="20px"
     >
-      <Icon as={action.icon} fontSize="20px" />
+      <Icon as={action.icon} fontSize="x-large" />
       <Stack gap="0">
         <Text fontSize="md" fontWeight="semibold">
           {action.title}

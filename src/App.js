@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 import Connexion from './components/pages/connexion/Connexion';
 import Réinitialisation from './components/pages/connexion/Réinitialisation';
-import LogedInLayout from './components/layout/LogedInLayout';
+import Layout from './components/layout/Layout';
 import InscriptionService from './components/pages/inscription/InscriptionService';
 import TableauDeBord from './components/pages/tableau-de-bord/TableauDeBord';
 import MesBillets from './components/pages/mes-billets/MesBillets';
@@ -36,7 +36,7 @@ export default function App() {
               />
             </Route>
 
-            <Route path="/compte" element={<LogedInLayout />}>
+            <Route path="/compte" element={<Layout />}>
               <Route path="tableau-de-bord" element={<TableauDeBord />} />
               <Route path="mes-billets" element={<MesBillets />} />
               <Route path="mes-billets/:id" element={<BilletDetails />} />

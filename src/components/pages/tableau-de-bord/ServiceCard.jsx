@@ -1,11 +1,12 @@
 import React from 'react';
 import { Stack, Text, Icon } from '@chakra-ui/react';
 
-export default function ÉtatsDesServicesCard({ card }) {
+export default function ServiceCard({ card }) {
   return (
     <Stack
-      padding="16px"
+      padding="3"
       borderColor="borderColor"
+      _hover={{ borderColor: 'darkBorderColor', bg: 'backgroundBg' }}
       borderWidth="1px"
       borderRadius="8"
       bg="cardBg"

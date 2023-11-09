@@ -12,6 +12,7 @@ import {
   TabPanel,
   Divider,
   Button,
+  Flex,
 } from '@chakra-ui/react';
 import { FiMapPin, FiUser } from 'react-icons/fi';
 import { BiTime } from 'react-icons/bi';
@@ -92,134 +93,145 @@ export default function MonProfil() {
             </Text>
           </Button>
         </Stack>
-        <Stack w="100%" h="100%">
-          <Tabs h="100%">
-            <TabList>
-              <Tab p="3">
-                <Stack direction="row" alignItems="center">
-                  <Icon as={FiUser} fontSize="xl" />
-                  <Text>Mon Profil</Text>
-                </Stack>
-              </Tab>
-              <Tab p="3">
-                <Stack direction="row" alignItems="center">
-                  <Icon as={MdDateRange} fontSize="xl" />
-                  <Text>Mes Absences</Text>
-                </Stack>
-              </Tab>
-              <Tab p="3">
-                <Stack direction="row" alignItems="center">
-                  <Icon as={IoMdNotificationsOff} fontSize="xl" />
-                  <Text>Préférences de notifications</Text>
-                </Stack>
-              </Tab>
-            </TabList>
 
-            <TabPanels h="100%">
-              <TabPanel px="0" overflowY="clip">
-                <Stack direction="row" w="100%">
-                  <Stack
-                    direction="column"
-                    gap="4"
-                    justifyContent="space-between"
+        <Tabs w="100%" h="100%">
+          <TabList>
+            <Tab p="3">
+              <Stack direction="row" alignItems="center">
+                <Icon as={FiUser} fontSize="xl" />
+                <Text>Mon Profil</Text>
+              </Stack>
+            </Tab>
+            <Tab p="3">
+              <Stack direction="row" alignItems="center">
+                <Icon as={MdDateRange} fontSize="xl" />
+                <Text>Mes Absences</Text>
+              </Stack>
+            </Tab>
+            <Tab p="3">
+              <Stack direction="row" alignItems="center">
+                <Icon as={IoMdNotificationsOff} fontSize="xl" />
+                <Text>Préférences de notifications</Text>
+              </Stack>
+            </Tab>
+          </TabList>
+
+          <TabPanels>
+            <TabPanel px="0">
+              <Flex
+                flex="1"
+                flexWrap="wrap"
+                gap="4"
+                overflowY="auto"
+                css={{
+                  '&::-webkit-scrollbar': {
+                    width: '2px',
+                  },
+                  '&::-webkit-scrollbar-track': {
+                    width: '10px',
+                  },
+                  '&::-webkit-scrollbar-thumb': {
+                    background: 'gray',
+                    borderRadius: '5px',
+                  },
+                }}
+                maxH="500px"
+              >
+                <Stack
+                  w="100%"
+                  bg="tabBg"
+                  borderRadius="default"
+                  spacing="12px"
+                  borderColor="borderColor"
+                  borderWidth="1px"
+                >
+                  <Text
+                    fontWeight="semibold"
+                    fontSize="lg"
+                    lineHeight="initial"
+                    pt="2"
+                    pl="3"
                   >
-                    <Stack
-                      bg="tabBg"
-                      borderRadius="default"
-                      spacing="12px"
-                      borderColor="borderColor"
-                      borderWidth="1px"
-                      h="100%"
-                    >
-                      <Text
-                        fontWeight="semibold"
-                        fontSize="lg"
-                        lineHeight="initial"
-                        pt="2"
-                        pl="3"
-                      >
-                        Coordonnées
-                      </Text>
-                      <Divider borderColor="borderColor" />
-                      <Stack px="3" pb="3">
-                        <TextField
-                          label="Téléphone travail"
-                          value="(514) 444-5432 Poste 512"
-                        />
-                        <TextField
-                          label="Téléphone domicile"
-                          value="(555) 555-1234"
-                        />
-                        <TextField
-                          label="Téléphone mobile"
-                          value="(555) 444-5432"
-                        />
-                      </Stack>
-                    </Stack>
-                    <Stack
-                      bg="tabBg"
-                      borderRadius="default"
-                      spacing="12px"
-                      borderColor="borderColor"
-                      borderWidth="1px"
-                    >
-                      <Text
-                        fontWeight="semibold"
-                        fontSize="lg"
-                        lineHeight="initial"
-                        pt="2"
-                        pl="3"
-                      >
-                        Préférences linguistiques
-                      </Text>
-                      <Divider borderColor="borderColor" />
-
-                      <Stack gap="1" px="3" pb="3">
-                        <TextField label="Langue" value="Francais" />
-                        <Text fontSize="13px" fontWeight="semibold">
-                          Cette langue sera utilisée dans l'interface du portail
-                          Web et sera utilisée pour vous envoyer des
-                          communications.
-                        </Text>
-                      </Stack>
-                    </Stack>
+                    Coordonnées
+                  </Text>
+                  <Divider borderColor="borderColor" />
+                  <Stack px="3" pb="3">
+                    <TextField
+                      label="Téléphone travail"
+                      value="(514) 444-5432 Poste 512"
+                    />
+                    <TextField
+                      label="Téléphone domicile"
+                      value="(555) 555-1234"
+                    />
+                    <TextField
+                      label="Téléphone mobile"
+                      value="(555) 444-5432"
+                    />
                   </Stack>
-                  <Stack
-                    bg="tabBg"
-                    borderRadius="default"
-                    spacing="12px"
-                    h="fit-content"
-                    borderColor="borderColor"
-                    borderWidth="1px"
-                    w="300px"
+                </Stack>
+                <Stack
+                  w="100%"
+                  bg="tabBg"
+                  borderRadius="default"
+                  spacing="12px"
+                  borderColor="borderColor"
+                  borderWidth="1px"
+                >
+                  <Text
+                    fontWeight="semibold"
+                    fontSize="lg"
+                    lineHeight="initial"
+                    pt="2"
+                    pl="3"
                   >
-                    <Text
-                      fontWeight="semibold"
-                      fontSize="lg"
-                      lineHeight="initial"
-                      px="3"
-                      pt="2"
-                      pl="3"
-                    >
-                      Mot de passe
+                    Préférences linguistiques
+                  </Text>
+                  <Divider borderColor="borderColor" />
+
+                  <Stack gap="1" px="3" pb="3">
+                    <TextField label="Langue" value="Francais" />
+                    <Text fontSize="13px" fontWeight="semibold">
+                      Cette langue sera utilisée dans l'interface du portail Web
+                      et sera utilisée pour vous envoyer des communications.
                     </Text>
-                    <Divider borderColor="borderColor" />
-
-                    <Stack px="3" pb="3">
-                      <Button variant="default" w="fit-content" size="sm">
-                        Change le mot de passe
-                      </Button>
-                    </Stack>
                   </Stack>
                 </Stack>
-              </TabPanel>
-              <TabPanel px="0" maxW="700px">
-                <MesAbsences />
-              </TabPanel>
-              <TabPanel maxW="700px">Préférences de notifications</TabPanel>
-            </TabPanels>
-          </Tabs>
-        </Stack>
+                <Stack
+                  w="100%"
+                  bg="tabBg"
+                  borderRadius="default"
+                  spacing="12px"
+                  h="fit-content"
+                  borderColor="borderColor"
+                  borderWidth="1px"
+                >
+                  <Text
+                    fontWeight="semibold"
+                    fontSize="lg"
+                    lineHeight="initial"
+                    px="3"
+                    pt="2"
+                    pl="3"
+                  >
+                    Mot de passe
+                  </Text>
+                  <Divider borderColor="borderColor" />
+
+                  <Stack px="3" pb="3">
+                    <Button variant="default" w="fit-content" size="sm">
+                      Change le mot de passe
+                    </Button>
+                  </Stack>
+                </Stack>
+              </Flex>
+            </TabPanel>
+            <TabPanel px="0" maxW="700px">
+              <MesAbsences />
+            </TabPanel>
+            <TabPanel maxW="700px">Préférences de notifications</TabPanel>
+          </TabPanels>
+        </Tabs>
       </Stack>
     </PageWrapper>
   );

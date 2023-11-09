@@ -38,6 +38,7 @@ export const AppProvider = ({ children }) => {
       id: id,
     });
     updateApp('billets', app.billets);
+
     toast({
       title: 'Succès!',
       position: 'bottom-right',
@@ -46,7 +47,11 @@ export const AppProvider = ({ children }) => {
       status: 'success',
       duration: 6000,
       isClosable: true,
-      containerStyle: { width: '300px', fontSize: 'md' },
+      variant: 'solid',
+      containerStyle: {
+        width: '300px',
+        fontSize: 'md',
+      },
     });
   }
 

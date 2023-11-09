@@ -51,7 +51,7 @@ export default function TopBar() {
             >
               <Icon as={AiOutlineQuestion} />
             </Stack>
-            <Popover w="450px" isLazy={true} trigger="hover">
+            <Popover w="450px" isLazy={true}>
               <PopoverTrigger>
                 <Stack
                   direction="row"
@@ -67,9 +67,10 @@ export default function TopBar() {
                 </Stack>
               </PopoverTrigger>
               <PopoverContent bg="tabBg">
+                <PopoverCloseButton />
                 <PopoverHeader>
                   <Text fontSize="sm" fontWeight="semibold">
-                    Notifications
+                    Mes Notifications
                   </Text>
                 </PopoverHeader>
                 <PopoverBody p="0" borderRadius="default">
@@ -100,6 +101,9 @@ export default function TopBar() {
                           <Text fontSize="xs">
                             Pierre Lamoureux vous a assigner ce billet
                           </Text>
+                          <Text fontSize="xs" textColor="GrayText">
+                            Il y a 20 minutes
+                          </Text>
                         </Stack>
                       </Stack>
                     </Stack>
@@ -124,10 +128,13 @@ export default function TopBar() {
                             fontWeight="semibold"
                             fontSize="16px"
                           >
-                            Interuption de service au routeur #2281
+                            Routeur #2281 ne fonctionne plus
                           </Text>
 
                           <Text fontSize="xs">Creer par Eric Lapointe</Text>
+                          <Text fontSize="xs" textColor="GrayText">
+                            Il y a 2 heures
+                          </Text>
                         </Stack>
                       </Stack>
                     </Stack>

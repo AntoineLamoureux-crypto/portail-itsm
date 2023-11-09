@@ -12,8 +12,8 @@ export default function PageWrapper({ children }) {
       maxW="1350px"
     >
       <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         style={{ height: '100%', width: '100%' }}
       >

@@ -1,19 +1,41 @@
-import React, { useContext } from 'react';
-import { Text, Link, Flex } from '@chakra-ui/react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Text, Link, Flex, useDisclosure } from '@chakra-ui/react';
+import { initialValues, steps } from '../tableau-de-bord/billets/data';
 import { DataTable } from '../../reusable/table/DataTable';
 import { getColumns } from './data';
 import Tab from '../../reusable/tab/Tab';
 import PageWrapper from '../../reusable/PageWrapper';
 import appContext from '../../../AppProvider';
+import Wizzard from '../../reusable/form/Wizzard';
 
 export default function MesBillets() {
   const columns = getColumns();
   const { getBillets, getBrouillons } = useContext(appContext);
-  const navigate = useNavigate();
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [nouveauBillet, setNouveauBillet] = useState(initialValues);
+
+  function onValueChange(field, value) {
+    const mergedBillet = { ...nouveauBillet, [field]: value };
+    setNouveauBillet(mergedBillet);
+  }
+
+  function handleOpen(type) {
+    onValueChange('typeDeBillet', type);
+    onOpen();
+  }
 
   return (
     <PageWrapper>
+      <Wizzard
+        steps={steps}
+        value={nouveauBillet}
+        setValue={setNouveauBillet}
+        initialValue={initialValues}
+        onValueChange={onValueChange}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
       <Flex direction="column" gap="4" h="100%" w="100%">
         <Tab
           tabH="55%"
@@ -35,7 +57,7 @@ export default function MesBillets() {
                     color="primary.500"
                     fontSize="sm"
                     fontWeight="semibold"
-                    onClick={() => navigate('/compte/tableau-de-bord')}
+                    onClick={() => handleOpen()}
                   >
                     ici
                   </Link>
@@ -61,7 +83,7 @@ export default function MesBillets() {
                     color="primary.500"
                     fontSize="sm"
                     fontWeight="semibold"
-                    onClick={() => navigate('/compte/tableau-de-bord')}
+                    onClick={() => handleOpen()}
                   >
                     ici
                   </Link>

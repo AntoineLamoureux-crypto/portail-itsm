@@ -1,23 +1,47 @@
-import React, { useContext } from 'react';
-import { Flex, Icon, Text, Stack, Link } from '@chakra-ui/react';
+import React, { useContext, useState } from 'react';
+import { Flex, Icon, Text, Stack, Link, useDisclosure } from '@chakra-ui/react';
 import { DataTable } from '../../reusable/table/DataTable';
-import { FiArrowRight } from 'react-icons/fi';
-import { getColumns } from './data';
+import { initialValues, steps } from './billets/data';
+import { FiActivity, FiArrowRight } from 'react-icons/fi';
+import { getColumns, etatsDesServices, avisDeMaintenance } from './data';
 import { useNavigate } from 'react-router-dom';
+import ServiceCard from './ServiceCard';
 import Tab from '../../reusable/tab/Tab';
+import TabHeader from '../../reusable/tab/TabHeader';
 import PageWrapper from '../../reusable/PageWrapper';
-import CommuniquésContenu from './communiqués/CommuniquésContenu';
+import CommuniquésContenu from './CommuniquésContenu';
 import appContext from '../../../AppProvider';
-import ÉtatsDesServicesCard from './états-des-services/ÉtatsDesServicesCard';
-import { etatsDesServices } from './états-des-services/data';
+import Wizzard from '../../reusable/form/Wizzard';
 
 export default function TableauDeBord() {
   const columns = getColumns();
   const navigate = useNavigate();
   const { getBilletsRecents } = useContext(appContext);
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [nouveauBillet, setNouveauBillet] = useState(initialValues);
+
+  function onValueChange(field, value) {
+    const mergedBillet = { ...nouveauBillet, [field]: value };
+    setNouveauBillet(mergedBillet);
+  }
+
+  function handleOpen(type) {
+    onValueChange('typeDeBillet', type);
+    onOpen();
+  }
+
   return (
     <PageWrapper>
+      <Wizzard
+        steps={steps}
+        value={nouveauBillet}
+        setValue={setNouveauBillet}
+        initialValue={initialValues}
+        onValueChange={onValueChange}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
       <Flex gap="4" flexDir="row" w="100%" h="100%">
         <Flex gap="4" flexDir="column" h="100%" w="100%">
           <Tab
@@ -51,7 +75,7 @@ export default function TableauDeBord() {
                       color="primary.500"
                       fontSize="sm"
                       fontWeight="semibold"
-                      onClick={() => navigate('/compte/tableau-de-bord')}
+                      onClick={() => handleOpen('')}
                     >
                       ici
                     </Link>
@@ -79,8 +103,9 @@ export default function TableauDeBord() {
 
         <Flex gap="2" w="35%">
           <Tab
-            title="États des services"
             tabH="100%"
+            title="États des services"
+            icon={{ data: FiActivity, color: 'red.500' }}
             topRightContent={
               <Icon
                 as={FiArrowRight}
@@ -92,7 +117,17 @@ export default function TableauDeBord() {
           >
             <Stack p="4" gap="2">
               {etatsDesServices.map((card, id) => (
-                <ÉtatsDesServicesCard card={card} key={id} />
+                <ServiceCard card={card} key={id} />
+              ))}
+              <Stack py="2" px="0" gap="0">
+                <TabHeader
+                  title="Avis de maintenance"
+                  icon={{ data: FiActivity, color: 'blue.500' }}
+                />
+              </Stack>
+
+              {avisDeMaintenance.map((card, id) => (
+                <ServiceCard card={card} key={id} />
               ))}
             </Stack>
           </Tab>

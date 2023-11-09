@@ -9,7 +9,9 @@ export default function CommuniquésContenu() {
           <Text variant="thin" fontSize="xs">
             Publié le 15 juillet 2023
           </Text>
-          <Tag>Ressources humaines</Tag>
+          <Tag _hover={{ bg: 'backgroundBg' }} cursor="pointer">
+            Ressources humaines
+          </Tag>
         </Stack>
         <Text fontSize="md" fontWeight="semibold">
           Vacances estivales 2023

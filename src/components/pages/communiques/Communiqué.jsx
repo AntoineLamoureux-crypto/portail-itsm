@@ -38,7 +38,14 @@ export default function Communiqué({ item, isLast }) {
               <Text lineHeight="1.43" fontWeight="regular" fontSize="14px">
                 {item.date}
               </Text>
-              <Tag size="sm" variant="solid" bg="primary.400" py="1">
+              <Tag
+                size="sm"
+                variant="solid"
+                bg="primary.400"
+                py="1"
+                _hover={{ bg: 'backgroundBg' }}
+                cursor="pointer"
+              >
                 <TagLabel>{item.type}</TagLabel>
               </Tag>
             </Stack>

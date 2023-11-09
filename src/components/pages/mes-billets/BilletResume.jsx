@@ -19,16 +19,13 @@ export default function BilletResume({ billet }) {
         overflowY="auto"
         css={{
           '&::-webkit-scrollbar': {
-            width: '5px',
+            width: '2px',
           },
           '&::-webkit-scrollbar-track': {
             width: '10px',
-            marginTop: '15px',
-            marginBottom: '15px',
           },
           '&::-webkit-scrollbar-thumb': {
             background: 'gray',
-            borderRadius: '5px',
           },
         }}
       >

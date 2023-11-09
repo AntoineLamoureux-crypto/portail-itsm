@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { UNDO_COMMAND, REDO_COMMAND } from 'lexical';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { Button, Icon } from '@chakra-ui/react';
+import { Button, Icon, Stack } from '@chakra-ui/react';
 import { BiRedo, BiUndo } from 'react-icons/bi';
 
 export const CustomHistoryActions = () => {
@@ -11,7 +11,7 @@ export const CustomHistoryActions = () => {
     editor.focus();
   }, [editor]);
   return (
-    <>
+    <Stack direction="row">
       <Button
         size="sm"
         p="1"
@@ -32,6 +32,6 @@ export const CustomHistoryActions = () => {
       >
         <Icon as={BiRedo} />
       </Button>
-    </>
+    </Stack>
   );
 };

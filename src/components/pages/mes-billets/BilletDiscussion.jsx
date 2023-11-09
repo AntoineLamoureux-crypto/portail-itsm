@@ -1,28 +1,29 @@
 import React from 'react';
 import { Divider, Stack, Image, Text, useColorMode } from '@chakra-ui/react';
-import { EditorV2 } from '../../editor/EditorV2';
+import { TextEditor } from '../../editor/TextEditor';
 
 export default function BilletDiscussion() {
   const { colorMode } = useColorMode();
   return (
-    <Stack w="100%" borderRadius="default">
-      <Stack gap="0">
+    <Stack w="100%" h="100%" borderRadius="default">
+      <Stack gap="0" h="100%">
         <Stack
-          maxH="100%"
-          bg={colorMode === 'dark' ? 'hsla(223, 24%, 17%, 1)' : 'gray.300'}
+          h="fit-content"
+          minH="300px"
+          maxH="600px"
+          bg={colorMode === 'dark' ? 'hsla(223, 24%, 17%, 1)' : 'white'}
           p="5"
           gap="0"
           overflowY="auto"
           css={{
             '&::-webkit-scrollbar': {
-              width: '5px',
+              width: '2px',
             },
             '&::-webkit-scrollbar-track': {
               width: '10px',
             },
             '&::-webkit-scrollbar-thumb': {
               background: 'gray',
-              borderRadius: '5px',
             },
           }}
         >
@@ -265,12 +266,165 @@ export default function BilletDiscussion() {
               mb="5px"
             />
           </Stack>
+          <Stack
+            direction="row"
+            justifyContent="end"
+            px="40px"
+            py="2"
+            h="fit-content"
+          >
+            <Stack direction="column">
+              <Stack
+                bg="gray.100"
+                px="2"
+                pt="1"
+                pb="2"
+                maxW="350px"
+                borderTopRadius="15px"
+                borderBottomLeftRadius="15px"
+                h="fit-content"
+                gap="0"
+              >
+                <Text
+                  fontSize="12px"
+                  textColor="gray.900"
+                  fontWeight="normal"
+                  pb="1"
+                >
+                  Antoine Lamoureux
+                </Text>
+                <Text
+                  fontSize="12px"
+                  textColor="gray.900"
+                  fontWeight="semibold"
+                >
+                  Merci pour les réponses rapides !
+                </Text>
+              </Stack>
+              <Text
+                fontSize="12px"
+                textColor="darkTextColor"
+                fontWeight="normal"
+              >
+                17 Juillet, 1:34 PM
+              </Text>
+            </Stack>
+            <Image
+              src="https://cdn-icons-png.flaticon.com/512/5556/5556520.png"
+              h="35px"
+              borderRadius="full"
+              alignSelf="flex-end"
+              mb="5px"
+            />
+          </Stack>
+          <Stack
+            direction="row"
+            justifyContent="end"
+            px="40px"
+            py="2"
+            h="fit-content"
+          >
+            <Stack direction="column">
+              <Stack
+                bg="gray.100"
+                px="2"
+                pt="1"
+                pb="2"
+                maxW="350px"
+                borderTopRadius="15px"
+                borderBottomLeftRadius="15px"
+                h="fit-content"
+                gap="0"
+              >
+                <Text
+                  fontSize="12px"
+                  textColor="gray.900"
+                  fontWeight="normal"
+                  pb="1"
+                >
+                  Antoine Lamoureux
+                </Text>
+                <Text
+                  fontSize="12px"
+                  textColor="gray.900"
+                  fontWeight="semibold"
+                >
+                  Merci pour les réponses rapides !
+                </Text>
+              </Stack>
+              <Text
+                fontSize="12px"
+                textColor="darkTextColor"
+                fontWeight="normal"
+              >
+                17 Juillet, 1:34 PM
+              </Text>
+            </Stack>
+            <Image
+              src="https://cdn-icons-png.flaticon.com/512/5556/5556520.png"
+              h="35px"
+              borderRadius="full"
+              alignSelf="flex-end"
+              mb="5px"
+            />
+          </Stack>
+          <Stack
+            direction="row"
+            justifyContent="end"
+            px="40px"
+            py="2"
+            h="fit-content"
+          >
+            <Stack direction="column">
+              <Stack
+                bg="gray.100"
+                px="2"
+                pt="1"
+                pb="2"
+                maxW="350px"
+                borderTopRadius="15px"
+                borderBottomLeftRadius="15px"
+                h="fit-content"
+                gap="0"
+              >
+                <Text
+                  fontSize="12px"
+                  textColor="gray.900"
+                  fontWeight="normal"
+                  pb="1"
+                >
+                  Antoine Lamoureux
+                </Text>
+                <Text
+                  fontSize="12px"
+                  textColor="gray.900"
+                  fontWeight="semibold"
+                >
+                  Merci pour les réponses rapides !
+                </Text>
+              </Stack>
+              <Text
+                fontSize="12px"
+                textColor="darkTextColor"
+                fontWeight="normal"
+              >
+                17 Juillet, 1:34 PM
+              </Text>
+            </Stack>
+            <Image
+              src="https://cdn-icons-png.flaticon.com/512/5556/5556520.png"
+              h="35px"
+              borderRadius="full"
+              alignSelf="flex-end"
+              mb="5px"
+            />
+          </Stack>
         </Stack>
 
         <Divider w="100%" />
 
-        <Stack p="2" maxH="500px">
-          <EditorV2 />
+        <Stack h="fit-content" maxH="500px" maxW="500px" p="4">
+          <TextEditor />
         </Stack>
       </Stack>
     </Stack>

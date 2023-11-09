@@ -10,9 +10,7 @@ import BilletResume from './BilletResume';
 export default function BilletDetails() {
   const { id } = useParams();
   const { getBillet } = useContext(appContext);
-
   const billet = getBillet(id);
-  console.log(billet);
   const navigate = useNavigate();
 
   return (
@@ -24,13 +22,11 @@ export default function BilletDetails() {
           <Button
             onClick={() => navigate(-1)}
             bg="default"
-            size="md"
+            size="sm"
             alignItems="center"
             borderColor="darkBorderColor"
             borderWidth="1px"
             borderRadius="lg"
-            py="2"
-            px="3"
             _hover={{ textColor: 'white', bg: 'gray.800' }}
             cursor="pointer"
           >
@@ -38,7 +34,7 @@ export default function BilletDetails() {
           </Button>
         }
       >
-        <Flex w="100%" gap="0">
+        <Flex w="100%" gap="0" overflow="clip">
           <Stack w="100%">
             <BilletDiscussion />
           </Stack>

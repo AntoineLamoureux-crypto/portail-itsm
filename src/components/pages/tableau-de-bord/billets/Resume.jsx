@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Stack, Text, Divider } from '@chakra-ui/react';
-import RenderStep from './RenderStep';
+import RenderStep from '../../../reusable/form/RenderStep';
 
 export default function Resume({ value, stepNumber, stepsData }) {
   return (

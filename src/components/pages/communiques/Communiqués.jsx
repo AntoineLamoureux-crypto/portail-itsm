@@ -31,19 +31,44 @@ export default function Communiqués() {
             title="Communiqués"
             topRightContent={
               <Stack direction="row" gap="1" alignItems="center">
-                <Tag fontSize="12px" h="20px" cursor="pointer">
+                <Tag
+                  fontSize="12px"
+                  h="20px"
+                  cursor="pointer"
+                  _hover={{ bg: 'backgroundBg' }}
+                >
                   Tous les départements
                 </Tag>
-                <Tag fontSize="12px" h="20px" cursor="pointer">
+                <Tag
+                  fontSize="12px"
+                  h="20px"
+                  cursor="pointer"
+                  _hover={{ bg: 'backgroundBg' }}
+                >
                   Comité social
                 </Tag>
-                <Tag fontSize="12px" h="20px" cursor="pointer">
+                <Tag
+                  fontSize="12px"
+                  h="20px"
+                  cursor="pointer"
+                  _hover={{ bg: 'backgroundBg' }}
+                >
                   Comptabilité
                 </Tag>
-                <Tag fontSize="12px" h="20px" cursor="pointer">
+                <Tag
+                  fontSize="12px"
+                  h="20px"
+                  cursor="pointer"
+                  _hover={{ bg: 'backgroundBg' }}
+                >
                   Ressources humaines
                 </Tag>
-                <Tag fontSize="12px" h="20px" cursor="pointer">
+                <Tag
+                  fontSize="12px"
+                  h="20px"
+                  cursor="pointer"
+                  _hover={{ bg: 'backgroundBg' }}
+                >
                   Ventes
                 </Tag>
               </Stack>

@@ -94,6 +94,7 @@ export function DataTable({ data, columns, whenEmpty }) {
                         {...cell.getCellProps({})}
                         {...cell.getCellProps()}
                         h="55px"
+                        fontSize="sm"
                       >
                         {cell.render('Cell')}
                       </Td>
