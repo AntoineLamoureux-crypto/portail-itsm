@@ -21,6 +21,18 @@ export const TextEditor = () => {
           borderRadius: '2px',
           borderColor: 'borderColor',
           outline: 'none',
+          maxHeight: '300px',
+          overflowY: 'auto',
+          '&::-webkit-scrollbar': {
+            width: '2px',
+          },
+          '&::-webkit-scrollbar-track': {
+            width: '10px',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            background: 'gray',
+            borderRadius: '5px',
+          },
         }}
       />
     );
@@ -56,10 +68,12 @@ export const TextEditor = () => {
           </Stack>
           <CustomHistoryActions />
         </Stack>
-        <RichTextPlugin
-          contentEditable={CustomContent}
-          ErrorBoundary={LexicalErrorBoundary}
-        />
+        <Stack>
+          <RichTextPlugin
+            contentEditable={CustomContent}
+            ErrorBoundary={LexicalErrorBoundary}
+          />
+        </Stack>
       </Stack>
     </LexicalComposer>
   );
