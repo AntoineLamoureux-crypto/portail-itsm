@@ -5,7 +5,7 @@ import { TextEditor } from '../../editor/TextEditor';
 export default function BilletDiscussion() {
   const { colorMode } = useColorMode();
   return (
-    <Stack w="100%" h="100%" borderRadius="default">
+    <Stack w="100%" h="100%" borderRadius="default" gap="0">
       <Stack gap="0" h="100%">
         <Stack
           h="fit-content"
@@ -423,7 +423,7 @@ export default function BilletDiscussion() {
 
         <Divider w="100%" />
 
-        <Stack h="fit-content" maxH="500px" maxW="500px" p="4">
+        <Stack maxH="500px" maxW="500px">
           <TextEditor />
         </Stack>
       </Stack>

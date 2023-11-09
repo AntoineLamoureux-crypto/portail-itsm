@@ -21,6 +21,7 @@ export const TextEditor = () => {
           borderRadius: '2px',
           borderColor: 'borderColor',
           outline: 'none',
+
           maxHeight: '300px',
           overflowY: 'auto',
           '&::-webkit-scrollbar': {
@@ -58,13 +59,15 @@ export const TextEditor = () => {
     <LexicalComposer initialConfig={lexicalConfig}>
       <CustomOnChangePlugin />
       <HistoryPlugin />
-      <Stack>
-        <Stack direction="row" gap="4">
-          <Stack gap="2" direction="row" alignItems="center">
-            <CustomTextActions />
-          </Stack>
-          <Stack gap="2" direction="row" alignItems="center">
-            <CustomAlignActions />
+      <Stack p="2">
+        <Stack direction="row" gap="4" justifyContent="space-between">
+          <Stack direction="row" gap="4">
+            <Stack gap="2" direction="row" alignItems="center">
+              <CustomTextActions />
+            </Stack>
+            <Stack gap="2" direction="row" alignItems="center">
+              <CustomAlignActions />
+            </Stack>
           </Stack>
           <CustomHistoryActions />
         </Stack>

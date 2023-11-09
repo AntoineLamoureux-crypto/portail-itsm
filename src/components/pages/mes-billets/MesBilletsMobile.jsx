@@ -1,15 +1,15 @@
 import React from 'react';
 import { Flex, Stack, Text, Badge, Center, Icon } from '@chakra-ui/react';
-import { toutBillets } from './data';
+import { mesBillets } from './data';
 import { FiCheckCircle } from 'react-icons/fi';
 import MobilePageWrapper from '../../reusable/MobilePageWrapper';
 
 export default function MesBilletsMobile() {
   return (
     <MobilePageWrapper>
-      <Flex w="100%" direction="column">
-        {toutBillets.length > 0 ? (
-          toutBillets.map((billet, id) => (
+      <Flex w="100%" h="100%" direction="column">
+        {mesBillets.length > 0 ? (
+          mesBillets.map((billet, id) => (
             <Billet key={id} id={id} billet={billet} />
           ))
         ) : (
@@ -65,4 +65,3 @@ function Billet({ billet, id }) {
     </Stack>
   );
 }
-

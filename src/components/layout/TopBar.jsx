@@ -32,7 +32,7 @@ export default function TopBar() {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Stack p="4" bg="topBarBg" shadow="md">
+    <Stack p="4" bg="topBarBg" shadow="md" w="100%">
       <HStack justify="space-between" alignItems="center">
         <Text fontSize="25px" fontWeight="bold">
           DAZZM

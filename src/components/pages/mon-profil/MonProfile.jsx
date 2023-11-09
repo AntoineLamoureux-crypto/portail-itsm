@@ -119,7 +119,7 @@ export default function MonProfil() {
           <TabPanels h="100%">
             <TabPanel px="0" h="100%">
               <Flex flexDir="column" gap="4">
-                <Stack direction="row">
+                <Stack direction="row" gap="4">
                   <Stack
                     w="100%"
                     bg="tabBg"
