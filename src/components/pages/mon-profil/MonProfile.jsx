@@ -116,85 +116,71 @@ export default function MonProfil() {
             </Tab>
           </TabList>
 
-          <TabPanels>
-            <TabPanel px="0">
-              <Flex
-                flex="1"
-                flexWrap="wrap"
-                gap="4"
-                overflowY="auto"
-                css={{
-                  '&::-webkit-scrollbar': {
-                    width: '2px',
-                  },
-                  '&::-webkit-scrollbar-track': {
-                    width: '10px',
-                  },
-                  '&::-webkit-scrollbar-thumb': {
-                    background: 'gray',
-                    borderRadius: '5px',
-                  },
-                }}
-                maxH="500px"
-              >
-                <Stack
-                  w="100%"
-                  bg="tabBg"
-                  borderRadius="default"
-                  spacing="12px"
-                  borderColor="borderColor"
-                  borderWidth="1px"
-                >
-                  <Text
-                    fontWeight="semibold"
-                    fontSize="lg"
-                    lineHeight="initial"
-                    pt="2"
-                    pl="3"
+          <TabPanels h="100%">
+            <TabPanel px="0" h="100%">
+              <Flex flexDir="column" gap="4">
+                <Stack direction="row">
+                  <Stack
+                    w="100%"
+                    bg="tabBg"
+                    borderRadius="default"
+                    spacing="12px"
+                    borderColor="borderColor"
+                    borderWidth="1px"
                   >
-                    Coordonnées
-                  </Text>
-                  <Divider borderColor="borderColor" />
-                  <Stack px="3" pb="3">
-                    <TextField
-                      label="Téléphone travail"
-                      value="(514) 444-5432 Poste 512"
-                    />
-                    <TextField
-                      label="Téléphone domicile"
-                      value="(555) 555-1234"
-                    />
-                    <TextField
-                      label="Téléphone mobile"
-                      value="(555) 444-5432"
-                    />
-                  </Stack>
-                </Stack>
-                <Stack
-                  w="100%"
-                  bg="tabBg"
-                  borderRadius="default"
-                  spacing="12px"
-                  borderColor="borderColor"
-                  borderWidth="1px"
-                >
-                  <Text
-                    fontWeight="semibold"
-                    fontSize="lg"
-                    lineHeight="initial"
-                    pt="2"
-                    pl="3"
-                  >
-                    Préférences linguistiques
-                  </Text>
-                  <Divider borderColor="borderColor" />
-
-                  <Stack gap="1" px="3" pb="3">
-                    <TextField label="Langue" value="Francais" />
-                    <Text fontSize="13px" fontWeight="semibold">
-                      Cette langue sera utilisée dans l'interface du portail Web
-                      et sera utilisée pour vous envoyer des communications.
+                    <Text
+                      fontWeight="semibold"
+                      fontSize="lg"
+                      lineHeight="initial"
+                      pt="2"
+                      pl="3"
+                    >
+                      Coordonnées
                     </Text>
+                    <Divider borderColor="borderColor" />
+                    <Stack px="3" pb="3">
+                      <TextField
+                        label="Téléphone travail"
+                        value="(514) 444-5432 Poste 512"
+                      />
+                      <TextField
+                        label="Téléphone domicile"
+                        value="(555) 555-1234"
+                      />
+                      <TextField
+                        label="Téléphone mobile"
+                        value="(555) 444-5432"
+                      />
+                    </Stack>
+                  </Stack>
+
+                  <Stack
+                    w="100%"
+                    bg="tabBg"
+                    borderRadius="default"
+                    spacing="12px"
+                    borderColor="borderColor"
+                    borderWidth="1px"
+                  >
+                    <Text
+                      fontWeight="semibold"
+                      fontSize="lg"
+                      lineHeight="initial"
+                      pt="2"
+                      pl="3"
+                    >
+                      Préférences linguistiques
+                    </Text>
+                    <Divider borderColor="borderColor" />
+
+                    <Stack gap="1" px="3" pb="3">
+                      <TextField label="Langue" value="Francais" />
+                      <Text fontSize="13px" fontWeight="semibold">
+                        Cette langue sera utilisée dans l'interface du portail
+                        Web et sera utilisée pour vous envoyer des
+                        communications.
+                      </Text>
+                    </Stack>
                   </Stack>
                 </Stack>
                 <Stack
