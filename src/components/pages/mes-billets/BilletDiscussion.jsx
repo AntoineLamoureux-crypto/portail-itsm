@@ -1,6 +1,6 @@
 import React from 'react';
 import { Divider, Stack, Image, Text, useColorMode } from '@chakra-ui/react';
-import { TextEditor } from '../../editor/TextEditor';
+import TextEditor from '../../editor/TextEditor';
 
 export default function BilletDiscussion() {
   const { colorMode } = useColorMode();
@@ -423,7 +423,7 @@ export default function BilletDiscussion() {
 
         <Divider w="100%" />
 
-        <Stack maxH="500px" maxW="500px">
+        <Stack maxH="500px" maxW="500px" h="fit-content">
           <TextEditor />
         </Stack>
       </Stack>

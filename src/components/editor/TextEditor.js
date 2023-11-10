@@ -4,15 +4,21 @@ import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
-import { CustomHistoryActions } from './plugins/CustomHistoryActions';
-import { CustomTextActions } from './plugins/CustomTextActions';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
-import { CustomAlignActions } from './plugins/CustomAlignActions';
 import { CustomOnChangePlugin } from './plugins/CustomOnChangePlugin';
-
+import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
+import { HeadingNode, QuoteNode } from '@lexical/rich-text';
+import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
+import { ListItemNode, ListNode } from '@lexical/list';
+import { CodeHighlightNode, CodeNode } from '@lexical/code';
+import { AutoLinkNode, LinkNode } from '@lexical/link';
+import { LinkPlugin } from '@lexical/react/LexicalLinkPlugin';
+import { ListPlugin } from '@lexical/react/LexicalListPlugin';
+import ExampleTheme from './ExampleTheme';
+import ToolbarPlugin from './plugins/ToolbarPlugin';
 import './styles.css';
 
-export const TextEditor = () => {
+export default function TextEditor() {
   const CustomContent = useMemo(() => {
     return (
       <ContentEditable
@@ -21,7 +27,7 @@ export const TextEditor = () => {
           borderRadius: '2px',
           borderColor: 'borderColor',
           outline: 'none',
-
+          height: 'fit-content',
           maxHeight: '300px',
           overflowY: 'auto',
           '&::-webkit-scrollbar': {
@@ -41,15 +47,20 @@ export const TextEditor = () => {
 
   const lexicalConfig = {
     namespace: 'My Rich Text Editor',
-    theme: {
-      text: {
-        bold: 'text-bold',
-        italic: 'text-italic',
-        underline: 'text-underline',
-        code: 'text-code',
-        highlight: 'text-highlight',
-      },
-    },
+    nodes: [
+      HeadingNode,
+      ListNode,
+      ListItemNode,
+      QuoteNode,
+      CodeNode,
+      CodeHighlightNode,
+      TableNode,
+      TableCellNode,
+      TableRowNode,
+      AutoLinkNode,
+      LinkNode,
+    ],
+    theme: ExampleTheme,
     onError: e => {
       console.log('ERROR:', e);
     },
@@ -59,25 +70,17 @@ export const TextEditor = () => {
     <LexicalComposer initialConfig={lexicalConfig}>
       <CustomOnChangePlugin />
       <HistoryPlugin />
-      <Stack p="2">
-        <Stack direction="row" gap="4" justifyContent="space-between">
-          <Stack direction="row" gap="4">
-            <Stack gap="2" direction="row" alignItems="center">
-              <CustomTextActions />
-            </Stack>
-            <Stack gap="2" direction="row" alignItems="center">
-              <CustomAlignActions />
-            </Stack>
-          </Stack>
-          <CustomHistoryActions />
-        </Stack>
-        <Stack>
-          <RichTextPlugin
-            contentEditable={CustomContent}
-            ErrorBoundary={LexicalErrorBoundary}
-          />
-        </Stack>
+      <Stack p="2" gap="2">
+        <ToolbarPlugin />
+
+        <AutoFocusPlugin />
+        <ListPlugin />
+        <LinkPlugin />
+        <RichTextPlugin
+          contentEditable={CustomContent}
+          ErrorBoundary={LexicalErrorBoundary}
+        />
       </Stack>
     </LexicalComposer>
   );
-};
+}
