@@ -17,7 +17,12 @@ import appContext from '../../../AppProvider';
 import Wizzard from '../../reusable/form/Wizzard';
 
 export default function MesBillets() {
-  const isDesktop = useBreakpointValue({ base: false, lg: true });
+  const isDesktop = useBreakpointValue({
+    xm: false,
+    sm: false,
+    md: true,
+    lg: true,
+  });
   const columns = getColumns();
   const { getBillets, getBrouillons } = useContext(appContext);
 

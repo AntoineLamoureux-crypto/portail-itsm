@@ -33,7 +33,7 @@ export default function TopBar() {
 
   return (
     <Stack bg="topBarBg" alignItems="center">
-      <Stack maxW="1800px" p="4" w="100%">
+      <Stack maxW="1600px" p="4" w="100%">
         <HStack justify="space-between" alignItems="center">
           <Text fontSize="25px" fontWeight="bold">
             DAZZM

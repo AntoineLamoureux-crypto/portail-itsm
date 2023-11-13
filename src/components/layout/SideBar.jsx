@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Flex, Stack, Icon, Text, useDisclosure } from '@chakra-ui/react';
 import { initialValues, steps } from '../pages/tableau-de-bord/billets/data';
 import { sideBarPages, sideBarActions } from './data';
@@ -22,7 +22,7 @@ export default function SideBar() {
   }
 
   return (
-    <Flex flexDir="column" minW="200px" w="200px" gap="16">
+    <Flex flexDir="column" minW="200px" w="200px" gap="8">
       <Stack gap="2">
         {sideBarActions.map((action, id) => {
           return (
@@ -77,23 +77,28 @@ function SideBarAction({ action, onClick }) {
         <Text fontSize="md" fontWeight="semibold">
           {action.title}
         </Text>
-        <Text fontSize="2xs">{action.subTitle}</Text>
+        <Text fontSize="xs">{action.subTitle}</Text>
       </Stack>
     </Stack>
   );
 }
 
 function SideBarLink({ page, onClick }) {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   return (
     <Stack
       onClick={onClick}
       p="2"
-      textColor="#4387CD"
+      textColor={currentPath === page.path ? 'black' : '#4387CD'}
       _hover={{
-        bg: 'hoverBg',
+        bg: currentPath === page.path ? 'white' : 'hoverBg',
         textColor: '#276acc',
         fontWeight: 'semibold',
       }}
+      bg={currentPath === page.path ? 'white' : 'transparent'}
+      fontWeight={currentPath === page.path ? 'semibold' : 'normal'}
       cursor="pointer"
       borderRadius="lg"
       direction="row"

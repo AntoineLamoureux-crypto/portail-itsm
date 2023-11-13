@@ -28,7 +28,7 @@ export default function TextEditor() {
           borderColor: 'borderColor',
           outline: 'none',
           height: 'fit-content',
-          maxHeight: '300px',
+          maxHeight: '200px',
           overflowY: 'auto',
           '&::-webkit-scrollbar': {
             width: '2px',
