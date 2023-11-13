@@ -4,13 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function PageWrapper({ children }) {
   return (
-    <Stack
-      overflowY="hidden"
-      overflowX="hidden"
-      h="100%"
-      w="100%"
-      maxW="1350px"
-    >
+    <Stack overflowY="hidden" overflowX="hidden" h="100%" w="100%">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

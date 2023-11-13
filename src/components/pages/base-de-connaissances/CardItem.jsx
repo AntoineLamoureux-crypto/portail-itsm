@@ -8,7 +8,7 @@ export default function CardItem({ data }) {
       borderRadius="8"
       borderWidth="1px"
       cursor="pointer"
-      w="315px"
+      w="300px"
       h="270px"
       _hover={{ bgColor: 'cardBg' }}
     >

@@ -1,11 +1,10 @@
-import { Flex, Stack, useBreakpointValue } from '@chakra-ui/react';
+import { Flex, Stack } from '@chakra-ui/react';
 import { Outlet } from 'react-router-dom';
 import TopBar from './TopBar';
 import SideBar from './SideBar';
 import QuickActions from './QuickActions';
 
 export default function Layout() {
-  const isDesktop = useBreakpointValue({ base: false, lg: true });
   return (
     <Flex
       w="100vw"
@@ -14,7 +13,9 @@ export default function Layout() {
       bg="backgroundBg"
       justifyContent="center"
     >
-      <TopBar />
+      <Stack shadow="md">
+        <TopBar />
+      </Stack>
       <Flex overflow="hidden" h="100%" w="100%">
         <Stack
           direction="row"
@@ -25,7 +26,9 @@ export default function Layout() {
           maxH="1000px"
         >
           <SideBar />
-          <Outlet />
+          <Stack maxW="1100px" w="100%">
+            <Outlet />
+          </Stack>
           <QuickActions />
         </Stack>
       </Flex>
