@@ -43,8 +43,11 @@ export default function TopBar() {
               <Stack
                 direction="row"
                 alignItems="center"
+                justifyContent="center"
                 borderColor="#354877"
                 borderWidth="1px"
+                w="40px"
+                h="40px"
                 borderRadius="full"
                 p="2"
                 cursor="pointer"
@@ -55,6 +58,8 @@ export default function TopBar() {
               <Popover w="450px" isLazy={true}>
                 <PopoverTrigger>
                   <Stack
+                    w="fit-content"
+                    h="40px"
                     direction="row"
                     alignItems="center"
                     borderColor="#354877"
@@ -165,6 +170,9 @@ export default function TopBar() {
               </Popover>
 
               <Stack
+                w="40px"
+                h="40px"
+                justifyContent="center"
                 direction="row"
                 alignItems="center"
                 borderColor="#354877"
@@ -186,6 +194,7 @@ export default function TopBar() {
                 borderRadius="full"
                 py="1"
                 px="3"
+                h="40px"
                 onClick={() => navigate('/compte/reglages')}
                 cursor="pointer"
                 _hover={{ textColor: 'white', bg: 'gray.800' }}
@@ -207,7 +216,7 @@ export default function TopBar() {
               pl="1"
             >
               <Icon as={FiLogOut} fontSize="xl" fontWeight="normal" />
-              <Text fontWeight="bold" fontSize="sm">
+              <Text fontWeight="bold" fontSize="15px">
                 Déconnexion
               </Text>
             </Stack>

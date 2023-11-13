@@ -23,7 +23,6 @@ import {
 import { $createHeadingNode, $isHeadingNode } from '@lexical/rich-text';
 import { Button, Icon, Select, Stack, Text } from '@chakra-ui/react';
 import { BiHighlight, BiRedo, BiUndo } from 'react-icons/bi';
-
 import { BsTypeBold } from 'react-icons/bs';
 import { AiOutlineItalic } from 'react-icons/ai';
 import { MdFormatUnderlined } from 'react-icons/md';
