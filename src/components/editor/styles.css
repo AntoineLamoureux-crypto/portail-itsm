@@ -10,39 +10,28 @@
   text-decoration: underline;
 }
 
-.editor-text-strikethrough {
-  text-decoration: line-through;
-}
-
-.editor-text-underlineStrikethrough {
-  text-decoration: underline line-through;
+.editor-text-highlight {
+  background-color: yellow;
+  color: 'white';
+  font-weight: bold;
 }
 
 .editor-text-code {
   background-color: rgb(240, 242, 245);
-
   font-family: Menlo, Consolas, Monaco, monospace;
   font-size: 94%;
 }
 
-.editor-link {
-  color: rgb(33, 111, 219);
-  text-decoration: none;
+.editor-text-red {
+  color: red;
 }
 
-.tree-view-output {
-  display: block;
-  background: #222;
-  color: #fff;
-  font-size: 12px;
-  white-space: pre-wrap;
-  margin: 1px auto 10px auto;
-  max-height: 250px;
-  position: relative;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  overflow: auto;
-  line-height: 14px;
+.editor-text-white {
+  color: white;
+}
+
+.editor-text-black {
+  color: black;
 }
 
 .editor-code {
@@ -81,41 +70,8 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
-.editor-tokenComment {
-  color: slategray;
-}
-
-.editor-tokenPunctuation {
-  color: #999;
-}
-
-.editor-tokenProperty {
-  color: #905;
-}
-
-.editor-tokenSelector {
-  color: #690;
-}
-
-.editor-tokenOperator {
-  color: #9a6e3a;
-}
-
-.editor-tokenAttr {
-  color: #07a;
-}
-
-.editor-tokenVariable {
-  color: #e90;
-}
-
-.editor-tokenFunction {
-  color: #dd4a68;
-}
-
 .editor-paragraph {
   margin: 0;
-
   position: relative;
 }
 
@@ -125,13 +81,11 @@
 
 .editor-heading-h1 {
   font-size: 24px;
-  color: rgb(5, 5, 5);
   font-weight: 400;
 }
 
 .editor-heading-h2 {
   font-size: 15px;
-  color: rgb(5, 5, 5);
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -162,198 +116,4 @@
 
 .editor-nested-listitem {
   list-style-type: none;
-}
-
-pre::-webkit-scrollbar {
-  background: transparent;
-  width: 10px;
-}
-
-pre::-webkit-scrollbar-thumb {
-  background: #999;
-}
-
-.debug-timetravel-panel {
-  overflow: hidden;
-  padding: 0 0 10px 0;
-  margin: auto;
-  display: flex;
-}
-
-.debug-timetravel-panel-slider {
-  padding: 0;
-  flex: 8;
-}
-
-.debug-timetravel-panel-button {
-  padding: 0;
-  border: 0;
-  background: none;
-  flex: 1;
-  color: #fff;
-  font-size: 12px;
-}
-
-.debug-timetravel-panel-button:hover {
-  text-decoration: underline;
-}
-
-.debug-timetravel-button {
-  border: 0;
-  padding: 0;
-  font-size: 12px;
-  top: 10px;
-  right: 15px;
-  position: absolute;
-  background: none;
-  color: #fff;
-}
-
-.debug-timetravel-button:hover {
-  text-decoration: underline;
-}
-
-.emoji {
-  color: transparent;
-  background-size: 16px 16px;
-  background-position: center;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-  margin: 0 -1px;
-}
-
-.emoji-inner {
-  padding: 0 0.15em;
-}
-
-.emoji-inner::selection {
-  color: transparent;
-  background-color: rgba(150, 150, 150, 0.4);
-}
-
-.emoji-inner::moz-selection {
-  color: transparent;
-  background-color: rgba(150, 150, 150, 0.4);
-}
-
-.toolbar {
-  display: flex;
-  margin-bottom: 1px;
-  background: #fff;
-  padding: 4px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  vertical-align: middle;
-}
-
-.toolbar button.toolbar-item {
-  border: 0;
-  display: flex;
-  background: none;
-  border-radius: 10px;
-  padding: 8px;
-  cursor: pointer;
-  vertical-align: middle;
-}
-
-.toolbar button.toolbar-item:disabled {
-  cursor: not-allowed;
-}
-
-.toolbar button.toolbar-item.spaced {
-  margin-right: 2px;
-}
-
-.toolbar button.toolbar-item i.format {
-  background-size: contain;
-  display: inline-block;
-  height: 18px;
-  width: 18px;
-  margin-top: 2px;
-  vertical-align: -0.25em;
-  display: flex;
-  opacity: 0.6;
-}
-
-.toolbar button.toolbar-item:disabled i.format {
-  opacity: 0.2;
-}
-
-.toolbar button.toolbar-item.active {
-  background-color: rgba(223, 232, 250, 0.3);
-}
-
-.toolbar button.toolbar-item.active i {
-  opacity: 1;
-}
-
-.toolbar .toolbar-item:hover:not([disabled]) {
-  background-color: #eee;
-}
-
-.toolbar .divider {
-  width: 1px;
-  background-color: #eee;
-  margin: 0 4px;
-}
-
-.toolbar select.toolbar-item {
-  border: 0;
-  display: flex;
-  background: none;
-  border-radius: 10px;
-  padding: 8px;
-  vertical-align: middle;
-
-  width: 70px;
-  font-size: 14px;
-  color: #777;
-  text-overflow: ellipsis;
-}
-
-.toolbar select.code-language {
-  text-transform: capitalize;
-  width: 130px;
-}
-
-.toolbar .toolbar-item .text {
-  display: flex;
-  line-height: 20px;
-  width: 200px;
-  vertical-align: middle;
-  font-size: 14px;
-  color: #777;
-  text-overflow: ellipsis;
-  width: 70px;
-  overflow: hidden;
-  height: 20px;
-  text-align: left;
-}
-
-.toolbar .toolbar-item .icon {
-  display: flex;
-  width: 20px;
-  height: 20px;
-  user-select: none;
-  margin-right: 8px;
-  line-height: 16px;
-  background-size: contain;
-}
-
-.toolbar i.chevron-down {
-  margin-top: 3px;
-  width: 16px;
-  height: 16px;
-  display: flex;
-  user-select: none;
-}
-
-.toolbar i.chevron-down.inside {
-  width: 16px;
-  height: 16px;
-  display: flex;
-  margin-left: -25px;
-  margin-top: 11px;
-  margin-right: 10px;
-  pointer-events: none;
 }

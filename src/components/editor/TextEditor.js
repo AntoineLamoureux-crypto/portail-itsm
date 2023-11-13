@@ -6,17 +6,14 @@ import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import { CustomOnChangePlugin } from './plugins/CustomOnChangePlugin';
-import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
-import { HeadingNode, QuoteNode } from '@lexical/rich-text';
-import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
+import { HeadingNode } from '@lexical/rich-text';
 import { ListItemNode, ListNode } from '@lexical/list';
-import { CodeHighlightNode, CodeNode } from '@lexical/code';
-import { AutoLinkNode, LinkNode } from '@lexical/link';
-import { LinkPlugin } from '@lexical/react/LexicalLinkPlugin';
 import { ListPlugin } from '@lexical/react/LexicalListPlugin';
 import ExampleTheme from './ExampleTheme';
 import ToolbarPlugin from './plugins/ToolbarPlugin';
 import './styles.css';
+
+import { CustomColorPlugin } from './plugins/CustomColorPlugin';
 
 export default function TextEditor() {
   const CustomContent = useMemo(() => {
@@ -47,19 +44,7 @@ export default function TextEditor() {
 
   const lexicalConfig = {
     namespace: 'My Rich Text Editor',
-    nodes: [
-      HeadingNode,
-      ListNode,
-      ListItemNode,
-      QuoteNode,
-      CodeNode,
-      CodeHighlightNode,
-      TableNode,
-      TableCellNode,
-      TableRowNode,
-      AutoLinkNode,
-      LinkNode,
-    ],
+    nodes: [HeadingNode, ListNode, ListItemNode],
     theme: ExampleTheme,
     onError: e => {
       console.log('ERROR:', e);
@@ -70,12 +55,10 @@ export default function TextEditor() {
     <LexicalComposer initialConfig={lexicalConfig}>
       <CustomOnChangePlugin />
       <HistoryPlugin />
+      <CustomColorPlugin />
       <Stack p="2" gap="2">
         <ToolbarPlugin />
-
-        <AutoFocusPlugin />
         <ListPlugin />
-        <LinkPlugin />
         <RichTextPlugin
           contentEditable={CustomContent}
           ErrorBoundary={LexicalErrorBoundary}

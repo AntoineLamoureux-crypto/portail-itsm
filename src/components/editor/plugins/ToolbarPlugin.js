@@ -10,6 +10,7 @@ import {
   $getSelection,
   $isRangeSelection,
   $createParagraphNode,
+  createCommand,
 } from 'lexical';
 import { $wrapNodes } from '@lexical/selection';
 import { $getNearestNodeOfType, mergeRegister } from '@lexical/utils';
@@ -26,6 +27,7 @@ import { BiHighlight, BiRedo, BiUndo } from 'react-icons/bi';
 import { BsTypeBold } from 'react-icons/bs';
 import { AiOutlineItalic } from 'react-icons/ai';
 import { MdFormatUnderlined } from 'react-icons/md';
+import { CustomColorActions } from './CustomColorAction';
 
 const LowPriority = 1;
 
@@ -37,9 +39,6 @@ const blockTypeToBlockName = {
   code: 'Code Block',
   h1: 'Large Heading',
   h2: 'Small Heading',
-  h3: 'Heading',
-  h4: 'Heading',
-  h5: 'Heading',
   ol: 'Numbered List',
   paragraph: 'Normal',
   quote: 'Quote',
@@ -57,22 +56,6 @@ function BlockOptionsDropdownList({ editor, blockType, toolbarRef }) {
       const { top, left } = toolbar.getBoundingClientRect();
       dropDown.style.top = `${top + 40}px`;
       dropDown.style.left = `${left}px`;
-    }
-  }, [dropDownRef, toolbarRef]);
-
-  useEffect(() => {
-    const dropDown = dropDownRef.current;
-    const toolbar = toolbarRef.current;
-
-    if (dropDown !== null && toolbar !== null) {
-      const handle = event => {
-        const target = event.target;
-      };
-      document.addEventListener('click', handle);
-
-      return () => {
-        document.removeEventListener('click', handle);
-      };
     }
   }, [dropDownRef, toolbarRef]);
 
@@ -184,6 +167,61 @@ function BlockOptionsDropdownList({ editor, blockType, toolbarRef }) {
   );
 }
 
+function ColorOptionsDropdownList({ editor, toolbarRef }) {
+  const dropDownRef = useRef(null);
+
+  const COLOR_COMMAND = createCommand('COLOR_COMMAND');
+  editor.registerCommand(
+    COLOR_COMMAND,
+    payload => {
+      return true;
+    },
+    LowPriority
+  );
+
+  useEffect(() => {
+    const toolbar = toolbarRef.current;
+    const dropDown = dropDownRef.current;
+
+    if (toolbar !== null && dropDown !== null) {
+      const { top, left } = toolbar.getBoundingClientRect();
+      dropDown.style.top = `${top + 40}px`;
+      dropDown.style.left = `${left}px`;
+    }
+  }, [dropDownRef, toolbarRef]);
+
+  const handleChange = event => {
+    const color = event.target.value;
+
+    editor.dispatchCommand(editor, COLOR_COMMAND, color);
+  };
+
+  return (
+    <Select
+      w="125px"
+      outline="none"
+      overflowY="auto"
+      size="sm"
+      borderRadius="md"
+      borderColor="transparent"
+      cursor="pointer"
+      bg="rgba(255, 255, 255, 0.1)"
+      onChange={handleChange}
+      value={['White', 'Red', 'Black']}
+    >
+      <option value="white">
+        <Text>White</Text>
+      </option>
+      <option value="red">
+        <Text>Red</Text>
+      </option>
+      <option value="black">
+        <Text>Black</Text>
+      </option>
+    </Select>
+  );
+}
+
 export default function ToolbarPlugin() {
   const [editor] = useLexicalComposerContext();
   const toolbarRef = useRef(null);
@@ -222,7 +260,7 @@ export default function ToolbarPlugin() {
       setIsBold(selection.hasFormat('bold'));
       setIsItalic(selection.hasFormat('italic'));
       setIsUnderline(selection.hasFormat('underline'));
-      setIsHighLigth(selection.hasFormat('highligth'));
+      setIsHighLigth(selection.hasFormat('highlight'));
     }
   }, [editor]);
 
@@ -291,6 +329,8 @@ export default function ToolbarPlugin() {
         blockType={blockType}
         toolbarRef={toolbarRef}
       />
+
+      <CustomColorActions />
 
       <Divider />
 
